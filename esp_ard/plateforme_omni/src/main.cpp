@@ -57,10 +57,10 @@ void processCommand(const String& command) {
   int x1, y1, x2, y2;
   if (sscanf(command.c_str(), "%d %d %d %d", &x1, &y1, &x2, &y2) == 4) {
     // Calcul des vitesses des moteurs
-    int speedFL = normalizeSpeed(x1 - y1 - x2);
-    int speedFR = normalizeSpeed(x1 + y1 + x2);
-    int speedBL = normalizeSpeed(x1 + y1 - x2);
-    int speedBR = normalizeSpeed(x1 - y1 + x2);
+    int speedFL = normalizeSpeed(x1 + y1 + x2);
+    int speedFR = normalizeSpeed(-x1 + y1 - x2);
+    int speedBL = normalizeSpeed(-x1 + y1 + x2);
+    int speedBR = normalizeSpeed(x1 + y1 - x2);
 
     // Application des vitesses aux moteurs
     setMotorSpeed(MOTOR_FL_PWM, MOTOR_FL_IN1, MOTOR_FL_IN2, speedFL);
